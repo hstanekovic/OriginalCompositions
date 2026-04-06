@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=700, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="../CSS/musicScorePlayerStyle.css">
+  <script type="module">
+    import { MusicScorePlayerPdf } from '../JS/musicScorePlayerPdf.js';
+    import { MusicScorePlayerControlPanel } from '../JS/musicScorePlayerControlPanel.js';
+
+    const params = new URLSearchParams(window.location.search);
+    const folder = params.get("folder");
+    const from = params.get("from");
+    const musicScorePlayerPdf = new MusicScorePlayerPdf('../JS/pdf.worker.js', `../SCORES/${folder}/score.pdf`, 'scoreCanvas');
+    let pageTurns = null;
+    let musicScorePlayerControlPanel = null;
+    fetch(`../SCORES/${folder}/pageTurns.json`)
+      .then(response => {
+        if (!response.ok) return [];
+        return response.json().catch(() => []);
+      })
+      .catch(() => [])
+      .then(data => {
+        pageTurns = data;
+        musicScorePlayerControlPanel =
+          new MusicScorePlayerControlPanel('controlPanel', pageTurns, `../SCORES/${folder}/score.pdf`, `../SCORES//${folder}/audio.mp3`, musicScorePlayerPdf, from);
+      });
+  </script>
+</head>
+
+<body>
+  <div id="controlPanel" class="controlPanel">
+    <a class="backLink" href="./list.html">BACK</a>
+    <button type="button" class="button previousPageButton"> - </button>
+    Page: <input type="text" value="1" class="text pageText" autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <button type="button" class="button nextPageButton"> + </button>
+    | 
+    <button type="button" class="button zoomOutButton"> - </button>
+    Scale: <input type="text" value="115" class="text zoomText" autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <button type="button" class="button zoomInButton"> + </button>
+    | 
+    <button type="button" class="button playButton"> ▶ </button>
+    <button type="button" class="button stopButton"> ⏹ </button>
+    <audio class="audio">
+      <source type="audio/mpeg">
+    </audio>
+    <span class="label clockLabel"></span>
+    /
+    <span class="label durationLabel"></span>
+    | 
+    <a class="pdfLink" download="score.pdf">PDF</a>
+    <a class="mp3Link" download="audio.mp3">MP3</a>
+  </div>
+  <canvas id="scoreCanvas" class="scoreCanvas"></canvas>
+</body>
+
+</html>
