@@ -1,7 +1,9 @@
 [
-  { "time":  33.7, "pageNumber": 2 },
-  { "time":  64.2, "pageNumber": 3 },
-  { "time": 109.0, "pageNumber": 4 },
-  { "time": 147.0, "pageNumber": 5 },
-  { "time": 182.0, "pageNumber": 6 }
+  { "time":  32.0, "pageNumber": 2 },
+  { "time":  47.0, "pageNumber": 3 },
+  { "time":  78.0, "pageNumber": 4 },
+  { "time": 103.9, "pageNumber": 5 },
+  { "time": 126.7, "pageNumber": 6 },
+  { "time": 148.2, "pageNumber": 7 },
+  { "time": 181.7, "pageNumber": 8 }
 ]
