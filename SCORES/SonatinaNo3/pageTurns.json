@@ -1,9 +1,9 @@
 [
-  { "time":  35.0, "pageNumber": 2 },
-  { "time":  50.0, "pageNumber": 3 },
-  { "time":  81.3, "pageNumber": 4 },
-  { "time": 106.9, "pageNumber": 5 },
-  { "time": 129.9, "pageNumber": 6 },
-  { "time": 151.3, "pageNumber": 7 },
-  { "time": 188.7, "pageNumber": 8 }
+  { "time":  35.7, "pageNumber": 2 },
+  { "time":  50.7, "pageNumber": 3 },
+  { "time":  82.0, "pageNumber": 4 },
+  { "time": 107.7, "pageNumber": 5 },
+  { "time": 130.6, "pageNumber": 6 },
+  { "time": 151.9, "pageNumber": 7 },
+  { "time": 189.4, "pageNumber": 8 }
 ]
