@@ -17,7 +17,7 @@ export class MusicScorePlayerPdf {
         const loadingTask = pdfjsLib.getDocument(documentUrl);
         loadingTask.promise.then(pdf => {
             this.pdfjsLibObjects.pdf = pdf;
-            this.renderPage(1, 1.15);
+            this.renderPage(1, 1);
         });
     }
 

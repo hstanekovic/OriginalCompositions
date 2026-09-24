@@ -2,7 +2,7 @@ export class MusicScorePlayerControlPanel {
 
   pageNumber = 1;
 
-  scale = 1.15;
+  scale = 1;
 
   scales = [0.25, 0.33, 0.5, 0.67, 0.85, 1, 1.15, 1.5, 2, 3, 4];
 
